@@ -1,5 +1,6 @@
 package consumer;
 
+import org.apache.kafka.clients.consumer.CommitFailedException;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -7,13 +8,16 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class KafkaBookConsumer1 {
+/**
+ * 수동커밋
+ */
+public class KafkaBookConsumerMO {
 	public static void main(String[] args) {
 		Properties props = new Properties();
 		props.put("bootstrap.servers", "localhost:9091,localhost:9092,localhost:9093");
-		props.put("group.id", "peter-consumer");
-		// 자동 커밋 (5초마다 컨슈머는 poll()을 호출할 때 가장 마지막 오프셋을 커밋한다.
-		props.put("enable.auto.commit", "true");
+		props.put("group.id", "peter-manual");
+		// 수동커밋인 경우 false로...
+		props.put("enable.auto.commit", "false");
 		props.put("auto.offset.reset", "latest");
 		props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -26,6 +30,12 @@ public class KafkaBookConsumer1 {
 				for (ConsumerRecord<String, String> recored : recoreds) {
 					System.out.printf("Topic : %s, Partition : %s, Offset : %d, Key: %s Value : %s\n",
 							recored.topic(), recored.partition(), recored.offset(), recored.key(), recored.value());
+				}
+
+				try {
+					consumer.commitAsync();
+				} catch (CommitFailedException exception) {
+					System.out.printf("Error", exception);
 				}
 			}
 		} finally {
