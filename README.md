@@ -1,6 +1,6 @@
 # Kafka
 
-- kafka download : https://kafka.apache.org/downloads
-- zookeeper download : https://archive.apache.org/dist/zookeeper
-- filebeat download : https://www.elastic.co/downloads/beats/filebeat
-- nofi download : http://nifi.apache.org/download.html
+- zookeeper download (coordinate) : https://archive.apache.org/dist/zookeeper
+- kafka download (message broker) : https://kafka.apache.org/downloads
+- filebeat download (producer) : https://www.elastic.co/downloads/beats/filebeat
+- nofi download (consumer) : http://nifi.apache.org/download.html
