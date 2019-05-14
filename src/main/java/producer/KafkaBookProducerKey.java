@@ -23,7 +23,7 @@ public class KafkaBookProducerKey {
 		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
 		Producer<String, String> producer = new KafkaProducer<>(props);
-		String testTopic = "peter-topic3";
+		String testTopic = "sim";
 		String oddKey = "1";
 		String evenKey = "2";
 
