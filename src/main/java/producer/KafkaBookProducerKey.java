@@ -14,7 +14,7 @@ public class KafkaBookProducerKey {
 	public static void main(String[] args) {
 		Properties props = new Properties();
 		// 처음 연결을 하기 위한 호스트와 포트 정보로 구성된 리스트
-		props.put("bootstrap.servers", "localhost:9091,localhost:9092,localhost:9093");
+		props.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
 		// 프로듀서가 카프카 토픽의 리더에게 메시지를 보낸 후 요청을 완료하기 전 승인의 수
 		props.put("acks", "1");
 		// 압축타입 non, gzip, snappy, lz4 등
@@ -23,7 +23,7 @@ public class KafkaBookProducerKey {
 		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
 		Producer<String, String> producer = new KafkaProducer<>(props);
-		String testTopic = "peter-topic2";
+		String testTopic = "peter-topic3";
 		String oddKey = "1";
 		String evenKey = "2";
 

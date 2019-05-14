@@ -12,7 +12,7 @@ import java.util.Properties;
 public class KafkaBookConsumerPart {
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9091,localhost:9092,localhost:9093");
+		props.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
 		props.put("group.id", "peter-partition");
 		props.put("enable.auto.commit", "false");
 		props.put("auto.offset.reset", "latest");

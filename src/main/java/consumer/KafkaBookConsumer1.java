@@ -10,7 +10,7 @@ import java.util.Properties;
 public class KafkaBookConsumer1 {
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9091,localhost:9092,localhost:9093");
+		props.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
 		props.put("group.id", "peter-consumer");
 		// 자동 커밋 (5초마다 컨슈머는 poll()을 호출할 때 가장 마지막 오프셋을 커밋한다.
 		props.put("enable.auto.commit", "true");
@@ -19,7 +19,7 @@ public class KafkaBookConsumer1 {
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
-		consumer.subscribe(Arrays.asList("peter-topic"));
+		consumer.subscribe(Arrays.asList("peter-topic3"));
 		try {
 			while (true) {
 				ConsumerRecords<String, String> recoreds = consumer.poll(100);

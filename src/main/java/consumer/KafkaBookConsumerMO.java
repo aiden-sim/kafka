@@ -14,7 +14,7 @@ import java.util.Properties;
 public class KafkaBookConsumerMO {
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9091,localhost:9092,localhost:9093");
+		props.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
 		props.put("group.id", "peter-manual");
 		// 수동커밋인 경우 false로...
 		props.put("enable.auto.commit", "false");

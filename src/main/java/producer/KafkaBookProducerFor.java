@@ -8,7 +8,7 @@ public class KafkaBookProducerFor {
 
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put("bootstrap.servers", "localhost:9091,localhost:9092,localhost:9093");
+		props.put("bootstrap.servers", "localhost:9092,localhost:9093,localhost:9094");
 		props.put("acks", "1");
 		props.put("compression.type", "gzip");
 		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
