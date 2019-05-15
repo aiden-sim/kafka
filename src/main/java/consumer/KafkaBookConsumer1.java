@@ -19,7 +19,7 @@ public class KafkaBookConsumer1 {
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
-		consumer.subscribe(Arrays.asList("sim"));
+		consumer.subscribe(Arrays.asList("peter-topic"));
 		try {
 			while (true) {
 				ConsumerRecords<String, String> recoreds = consumer.poll(100);
